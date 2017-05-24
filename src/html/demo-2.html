@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>impress</title>
+    <link href="../css/impress-demo.css" rel="stylesheet"/>
+</head>
+
+<body>
+
+<style>
+    /* 未访问过的元素 */
+    .future{
+        border-radius: 10px;
+    }
+    /* 正在访问的元素 在这里添加动画*/
+    .present{
+        border-radius: 10px;
+    }
+    .present .something{
+        /* 对子元素添加动画效果 */
+    }
+    /* 访问过的元素 */
+    .past {
+        border-radius: 10px;
+    }
+    /* 当前的元素 */
+    .active {
+        opacity: 1;
+        border-radius: 10px;
+    }
+
+</style>
+
+<style>
+    /* 当页面不支持的时候显示 */
+    .no-support-message{
+        display: none;
+        width: 700px;
+        margin: 200px auto;
+        padding: 200px 100px;
+        border-radius: 10px;
+        font-size: 20px;
+        text-align: center;
+        background-color: #ffffff;
+    }
+    .impress-not-supported .step{
+        display: none;
+    }
+    .impress-not-supported .no-support-message{
+        display:block;
+    }
+    /* 当页面不支持的时候显示 */
+</style>
+<!-- 检测到浏览器不支持时，会在body上添加.impress-not-supported类 -->
+<div class="no-support-message">
+    99999，6翻了，这个浏览器不支持。。不支持。。。薨
+</div>
+
+<style>
+    /* 每一步 */
+    .step {
+        opacity: 1;
+        background-color: #ffffff;
+        min-height: 700px;
+        width: 1200px;
+        cursor: pointer;
+        text-align: center;
+        line-height: 580px;
+    }
+</style>
+<div id="impress">
+    <div class="step" data-x="-2500" data-y="0">
+        1
+    </div>
+    <div class="step" data-x="-2939" data-y="1061" data-rotate="45">
+        2
+    </div>
+    <div class="step" data-x="-4000" data-y="1500" data-rotate="90">
+        3
+    </div>
+    <div class="step" data-x="-5061" data-y="1061" data-rotate="135">
+        4
+    </div>
+    <div class="step" data-x="-5500" data-y="0" data-rotate="180">
+        5
+    </div>
+    <div class="step" data-x="-5061" data-y="-1061" data-rotate="225">
+        6
+    </div>
+    <div class="step" data-x="-4000" data-y="-1500" data-rotate="270">
+        7
+    </div>
+    <div class="step" data-x="-2939" data-y="-1061" data-rotate="315">
+        8
+    </div>
+
+    <div class="step" data-x="-1061" data-y="-2939" data-rotate="315">
+        9
+    </div>
+    <div class="step" data-x="-1500" data-y="-4000" data-rotate="360">
+        10
+    </div>
+    <div class="step" data-x="-1061" data-y="-5061" data-rotate="405">
+        11
+    </div>
+    <div class="step" data-x="0" data-y="-5500" data-rotate="450">
+        12
+    </div>
+    <div class="step" data-x="1061" data-y="-5061" data-rotate="495">
+        13
+    </div>
+    <div class="step" data-x="1500" data-y="-4000" data-rotate="540">
+        14
+    </div>
+    <div class="step" data-x="1061" data-y="-2939" data-rotate="585">
+        15
+    </div>
+    <div class="step" data-x="0" data-y="-2500" data-rotate="630">
+        16
+    </div>
+
+    <div class="step" data-x="0" data-y="2500" data-rotate="630">
+        17
+    </div>
+    <div class="step" data-x="-1061" data-y="2939" data-rotate="585">
+        18
+    </div>
+    <div class="step" data-x="-1500" data-y="4000" data-rotate="540">
+        19
+    </div>
+    <div class="step" data-x="-1061" data-y="5061" data-rotate="495">
+        20
+    </div>
+    <div class="step" data-x="0" data-y="5500" data-rotate="450">
+        21
+    </div>
+    <div class="step" data-x="1061" data-y="5061" data-rotate="405">
+        22
+    </div>
+    <div class="step" data-x="1500" data-y="4000" data-rotate="360">
+        23
+    </div>
+    <div class="step" data-x="1061" data-y="2939" data-rotate="315">
+        24
+    </div>
+
+
+    <div class="step" data-x="2939" data-y="1061" data-rotate="315">
+        25
+    </div>
+    <div class="step" data-x="4000" data-y="1500" data-rotate="270">
+        26
+    </div>
+    <div class="step" data-x="5061" data-y="1061" data-rotate="225">
+        27
+    </div>
+    <div class="step" data-x="5500" data-y="0" data-rotate="180">
+        28
+    </div>
+    <div class="step" data-x="5061" data-y="-1061" data-rotate="135">
+        29
+    </div>
+    <div class="step" data-x="4000" data-y="-1500" data-rotate="90">
+        30
+    </div>
+    <div class="step" data-x="2939" data-y="-1061" data-rotate="45">
+        31
+    </div>
+    <div class="step" data-x="2500" data-y="0" data-rotate="0">
+        32
+    </div>
+</div>
+
+<style>
+    /* 覆盖掉impress.js在<body>上添加的样式：impress-enabled */
+    .impress-enabled {
+        pointer-events: auto;
+    }
+    .nav{
+        position: absolute;
+        right: 0%;
+        top: 50%;
+        margin-top: -145px;
+        margin-right: 4%;
+    }
+    .nav>div{
+        text-align: center;
+        padding: 15px;
+        margin: 10px;
+        border-radius: 25px;
+        color: #666666;
+        background-color: #ffffff;
+    }
+    .nav div:hover{
+        cursor: pointer;
+        color: #ffffff;
+        background-color: #999999;
+    }
+    .nav div:active{
+         color: #ffffff;
+         background-color: #666666;
+     }
+    .nav .now{
+        color: #ffffff;
+        background-color: #666666;
+    }
+    /* 使导航失效 */
+    .nav .disable{
+        color: #666666;
+        background-color: #999999;
+    }
+    .nav .disable:hover{
+        cursor: default;
+        color: #666666;
+        background-color: #999999;
+     }
+</style>
+<div id="nav" class="nav">
+    <div id="home" class="home">首</div>
+    <div id="prev" class="prev">上</div>
+    <div id="now" class="now">4</div>
+    <div id="next" class="next">下</div>
+    <div id="end" class="end">末</div>
+</div>
+
+<script src="../js/impress.js"></script>
+<script>
+    (function () {
+
+        /* 初始化 */
+        var impress_api = impress();
+        impress_api.init();
+
+        /* 初始化导航 */
+        init_menu(impress_api);
+
+        function init_menu(impress_api) {
+            /* step的个数 */
+            var steps_size = document.querySelectorAll( "#impress .step" ).length;
+
+            /*根元素*/
+            var rootElement = document.getElementById( "impress" );
+
+            /*  当初始化完成时会触发impress:init事件 */
+            rootElement.addEventListener( "impress:init", function() {
+                console.log( "Impress init" );
+            });
+            /* 当进入某页时会触发impress:stepenter事件 */
+            rootElement.addEventListener( "impress:stepenter", function() {
+                var currentStep = document.querySelector( ".present" );
+                console.log( "Entered the Step Element '" + currentStep.id + "'" );
+
+                var position = currentStep.id.length > 5 ? currentStep.id.split("-")[1] : 0;
+                /* 设置当前的页数 */
+                var now = document.getElementById( "now" );
+                now.innerText = position.toString();
+
+                /* 进入最后一页，使末尾页失效 */
+                var home = document.getElementById( "home" );
+                var end = document.getElementById( "end" );
+                if(position == steps_size){
+                    removeClass(home, "disable");
+                    addClass(end, "disable");
+                }else if(position == 1){ /* 进入第一页，使首页功能失效 */
+                    removeClass(end, "disable");
+                    addClass(home, "disable");
+                }else{ /* 其他情况 */
+                    removeClass(home, "disable");
+                    removeClass(end, "disable");
+                }
+            });
+            /* 当离开某页时会触发impress:stepleave事件 */
+            rootElement.addEventListener( "impress:stepleave", function(event) {
+                var currentStep = event.target;
+                console.log( "Left the Step Element '" + currentStep.id + "'" );
+            });
+
+            /* 跳转到home */
+            var home = document.getElementById( "home" );
+            home.addEventListener( "click", function() {
+                /* stepIndex | stepElementId | stepElement, [ duration ]
+                 7 | "overview" | document.getElementById( "overview" ) */
+                impress_api.goto(0);
+            });
+
+            /* 上一页 */
+            var prev = document.getElementById( "prev" );
+            prev.addEventListener( "click", function() {
+                impress_api.prev();
+            });
+
+            /* 下一页 */
+            var next = document.getElementById( "next" );
+            next.addEventListener( "click", function() {
+                impress_api.next();
+            });
+
+            /* 最后一页 */
+            var end = document.getElementById( "end" );
+            end.addEventListener( "click", function() {
+                impress_api.goto(steps_size - 1);
+            });
+
+        }
+
+        /* class 操作 */
+        function hasClass(element, className) {
+            return element.className.match(new RegExp('(\\s|^)' + className + '(\\s|$)'));
+        }
+        function addClass(element, className) {
+            if (!hasClass(element, className)) element.className += " " + className;
+        }
+        function removeClass(element, className) {
+            if (hasClass(element, className)) {
+                var reg = new RegExp('(\\s|^)' + className + '(\\s|$)');
+                element.className = element.className.replace(reg, ' ');
+            }
+        }
+
+    })();
+</script>
+
+</body>
+</html>
